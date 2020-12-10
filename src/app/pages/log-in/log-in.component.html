@@ -9,11 +9,13 @@
           <input type="password" placeholder="Enter Password" formControlName="password" required>
       
           <button (click)="logIn()" type="submit">Login</button>
+          <button (click)="logInViaGoogle()" type="submit">Login via Google</button>
        
         </div>
       
         <div class="container" style="background-color:#f1f1f1">
           <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >No Account? Sign Up Here</a>
+          <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active" >Forgot Password?</a>
         </div>
       </form>
   </div>

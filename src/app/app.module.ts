@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
