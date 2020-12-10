@@ -1,0 +1,30 @@
+<div  fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="signUpForm" style="border:1px solid #ccc">
+        <div class="container">
+          <h5>Sign Up</h5>
+          <hr>
+    
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" formControlName="email" required>
+  
+          <label for="address"><b>Address</b></label>
+          <input type="text" placeholder="Enter Address" formControlName="address" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" formControlName="password" required>
+      
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" formControlName="password2" required>
+  
+    
+          <div class="clearfix">
+            <button (click)="saveNewUser()" class="signupbtn" type="submit">
+              Save
+            </button>
+          </div>
+        </div>
+        
+        <a [routerLink]="['/log-in']" routerLinkActive="router-link-active" >Already have an account? Log In Here</a>
+      </form>
+  </div>
+    
