@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/libs/services/auth/auth.service';
 })
 export class VerifyEmailComponent implements OnInit {
 
-  constructor( private authService: AuthService) {  this.user = this.authService.userData}
+  constructor( public authService: AuthService) {  this.user = this.authService.userData}
   user: IUser
 
   ngOnInit(): void {
