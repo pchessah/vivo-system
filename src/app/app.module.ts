@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
 import { AngularFireModule } from "@angular/fire";
@@ -35,6 +37,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatCardModule,
+    MatButtonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     AppRoutingModule

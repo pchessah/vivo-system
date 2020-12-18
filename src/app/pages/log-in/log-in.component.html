@@ -1,21 +1,26 @@
-<div  fxLayout="row" fxLayoutAlign="center center">
-    <form [formGroup]="logInForm">  
-        <div class="container">
-          <h5>Log In To Vivo Activewear Job Portal</h5>
-          <label for="uname"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" formControlName="email" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" formControlName="password" required>
-      
-          <button (click)="logIn()" type="submit">Login</button>
-          <button (click)="logInViaGoogle()" type="submit">Login via Google</button>
-       
+<div fxLayout="row" fxLayoutAlign="center center" fxFill>
+  <mat-card fxLayoutAlign="center center">
+    <form [formGroup]="logInForm" fxFill>
+      <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+        <img src="../../.././assets/vivo-logo.jpeg" alt="logo" />
+        <h5>Log In To Vivo Activewear Job Portal</h5>
+
+        <input type="text" placeholder="Enter Email" formControlName="email" required>
+
+        <input type="password" placeholder="Enter Password" formControlName="password" required>
+        <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+          <button mat-raised-button (click)="logIn()" type="submit"> <i class="far fa-envelope"></i>Login via mail</button>
+          <button class="google-btn" mat-raised-button (click)="logInViaGoogle()" type="submit"> <img src="../../.././assets/google-logo.png"/> Login via
+            Google</button>
         </div>
-      
-        <div class="container" style="background-color:#f1f1f1">
-          <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >No Account? Sign Up Here</a>
-          <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active" >Forgot Password?</a>
-        </div>
-      </form>
-  </div>
+      </div>
+
+      <div class="container">
+        <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active">No Account? Sign Up Here</a> <br>
+        <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active">Forgot Password?</a>
+      </div>
+    </form>
+
+  </mat-card>
+
+</div>

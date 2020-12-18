@@ -1,8 +1,27 @@
 /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
     margin: 5%;
     width: 75%;
+  }
+.google-btn{
+  background-color: #4285F4;
+  margin-left: 5px;
+  color: white !important;
+}
+
+.google-btn img{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+
+  mat-card{
+    width: 400px;
+    margin: 5px;
+  }
+  i{
+    margin: 2%;
   }
 
   label, b{
@@ -15,19 +34,18 @@ form {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid #f1f1f1;
     box-sizing: border-box;
   }
   
   /* Set a style for all buttons */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+  button {  
+    padding: 8px 15px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
+    border-radius: 2%;
+    font-size: 12px;
   }
   
   /* Add a hover effect for buttons */
@@ -62,4 +80,12 @@ form {
     .cancelbtn {
       width: 100%;
     }
+  }
+
+
+  // logo
+
+  img{
+    width: 40px;
+    height: 40px;
   }
