@@ -20,6 +20,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
+import { AuthGuard } from './libs/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     PageNotFoundComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
