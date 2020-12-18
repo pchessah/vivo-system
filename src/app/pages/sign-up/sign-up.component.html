@@ -1,34 +1,32 @@
-<div  fxLayout="row" fxLayoutAlign="center center">
-    <form [formGroup]="signUpForm" style="border:1px solid #ccc">
-        <div class="container">
-          <h5>Sign Up</h5>
-          <hr>
-    
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" formControlName="email" required>
-  
-          <label for="address"><b>Address</b></label>
-          <input type="text" placeholder="Enter Address" formControlName="address" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" formControlName="password" required>
-      
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" formControlName="password2" required>
-  
-    
-          <div class="clearfix">
-            <button (click)="saveNewUser()" class="signupbtn" type="submit">
-              Sign Up
-            </button>            Or
+<div fxLayout="row" fxLayoutAlign="center center" fxFill>
+  <mat-card fxLayoutAlign="center center">
+    <form [formGroup]="signUpForm" fxFill>
+      <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+        <img src="../../.././assets/vivo-logo.jpeg" alt="logo" />
+        <h5>Sign Up To use Vivo Job Portal</h5>
+        <input type="email" placeholder="Enter Email" formControlName="email" required>
 
-            <button (click)="signUpWithGoogle()" class="signupbtn" type="submit">
-              Sign Up with Google
-            </button>
-          </div>
+        <input type="password" placeholder="Enter Password" formControlName="password" required>
+
+
+
+        <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+          <button mat-raised-button (click)="saveNewUser()"  type="submit">
+            <i class="far fa-envelope"></i> Sign up with mail
+          </button>
+
+          <button mat-raised-button (click)="signUpWithGoogle()" class="google-btn" type="submit">
+            <img src="../../.././assets/google-logo.png"/>
+            Sign Up with Google
+          </button>
         </div>
-        
-        <a [routerLink]="['/log-in']" routerLinkActive="router-link-active" >Already have an account? Log In Here</a>
-      </form>
-  </div>
-    
+      </div>
+
+      <div class="container">
+        <a [routerLink]="['/log-in']" routerLinkActive="router-link-active">Already have an account? Log In here</a>
+
+      </div>
+
+    </form>
+  </mat-card>
+</div>
