@@ -37,23 +37,7 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user') || "{}");
       }
     })
-    this.whichUserLoggedIn();
-    this.getCurrentUser();
-  }
-
-  whichUserLoggedIn(){
-    return this.afAuth.authState.pipe(first()).toPromise();
-  }
-
-  async getCurrentUser(){
-    const user = await this.whichUserLoggedIn()
-    if(user){
-     this.currentUser = user.email
-     return this.currentUser
-    }
-  }
-
-  
+  }  
 
   //SIGN IN WITH EMAIL/PASSWORD
   SignIn(email: string, password: string) {
