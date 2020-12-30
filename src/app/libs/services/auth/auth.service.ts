@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core'
-import auth from 'firebase/app'
 import { AngularFireAuth } from '@angular/fire/auth'
 import {
   AngularFirestore,
@@ -8,6 +7,7 @@ import {
 import { Router } from '@angular/router'
 import { IUser } from '../../interfaces/iuser'
 import * as firebase from 'firebase/app'
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +15,8 @@ import * as firebase from 'firebase/app'
 export class AuthService {
   userData: any;
   currentUser: any;
+  admin: string= "paulchesa1@gmail.com"
+  
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -22,7 +24,6 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
   ) {
-    console.log(this.isLoggedIn);
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
@@ -30,19 +31,36 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user') || "{}");
-        this.currentUser = user.email;
+        // this.currentUser = user.email;
       } else {
         localStorage.removeItem("user");
         JSON.parse(localStorage.getItem('user') || "{}");
       }
     })
+    this.whichUserLoggedIn();
+    this.getCurrentUser();
   }
+
+  whichUserLoggedIn(){
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
+  async getCurrentUser(){
+    const user = await this.whichUserLoggedIn()
+    if(user){
+     this.currentUser = user.email
+     return this.currentUser
+    }
+  }
+
+  
 
   //SIGN IN WITH EMAIL/PASSWORD
   SignIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
+          this.currentUser = email
           this.router.navigate(['home']);
         });
         this.SetUserData(result.user);
@@ -81,7 +99,7 @@ export class AuthService {
 
    // Sign in with Google
    GoogleAuth() {
-    return this.AuthLogin(new firebase.default.auth.GoogleAuthProvider());
+        return this.AuthLogin(new firebase.default.auth.GoogleAuthProvider())
   }
 
   // Auth logic to run auth providers
