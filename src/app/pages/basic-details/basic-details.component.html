@@ -1,47 +1,51 @@
-<mat-accordion>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <h4><i class="fas fa-xs fa-info-circle"></i> Get started</h4>
-        </mat-expansion-panel-header>
+<div fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <img class="vivo-logo" src="../../../assets/vivo-logo.jpeg" alt="vivo-logo"/>
+    <h4>Fill in Your details appropriately</h4>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <h4><i class="fas fa-address-card"></i> Basic Details</h4>
+            </mat-expansion-panel-header>
 
-        <ng-template matExpansionPanelContent>
-            how to get started
-        </ng-template>
-    </mat-expansion-panel>
+            <ng-template matExpansionPanelContent>
+                <app-user-contacts-form></app-user-contacts-form>
+            </ng-template>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <h4><i class="fas fa-xs fa-info-circle"></i> Save bookmarks</h4>
-        </mat-expansion-panel-header>
-        <ng-template matExpansionPanelContent>
-            how to save
-        </ng-template>
-    </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <h4><i class="fas fa-briefcase"></i> Work Experience</h4>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <app-work-experience-form></app-work-experience-form>
+            </ng-template>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <h4><i class="fas fa-xs fa-info-circle"></i> Search bookmarks</h4>
-        </mat-expansion-panel-header>
-        <ng-template matExpansionPanelContent>
-            how to search
-        </ng-template>
-    </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <app-education-details-form></app-education-details-form>
+            </ng-template>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <h4><i class="fas fa-xs fa-info-circle"></i> Bookmarklets</h4>
-        </mat-expansion-panel-header>
-        <ng-template matExpansionPanelContent>
-            how to bookmark
-        </ng-template>
-    </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <h4><i class="fas fa-users"></i> Referees</h4>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+                <app-referees-details-form></app-referees-details-form>
+            </ng-template>
+        </mat-expansion-panel>
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <h4><i class="fas fa-xs fa-info-circle"></i> Codelets</h4>
-        </mat-expansion-panel-header>
-        <ng-template matExpansionPanelContent>
-            how to codelet
-        </ng-template>
-    </mat-expansion-panel>
-</mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <h4><i class="fas fa-upload"></i> Uploads</h4>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent>
+               <app-uploads-details-form></app-uploads-details-form>
+            </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

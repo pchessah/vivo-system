@@ -28,6 +28,11 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
 import { AuthGuard } from './libs/guards/auth.guard';
 import { BasicDetailsComponent } from './pages/basic-details/basic-details.component';
+import { UserContactsFormComponent } from './components/basic-details-forms/user-contacts-form/user-contacts-form.component';
+import { WorkExperienceFormComponent } from './components/basic-details-forms/work-experience-form/work-experience-form.component';
+import { EducationDetailsFormComponent } from './components/basic-details-forms/education-details-form/education-details-form.component';
+import { RefereesDetailsFormComponent } from './components/basic-details-forms/referees-details-form/referees-details-form.component';
+import { UploadsDetailsFormComponent } from './components/basic-details-forms/uploads-details-form/uploads-details-form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,12 @@ import { BasicDetailsComponent } from './pages/basic-details/basic-details.compo
     VerifyEmailComponent,
     HomeComponent,
     DashboardComponent,
-    BasicDetailsComponent
+    BasicDetailsComponent,
+    UserContactsFormComponent,
+    WorkExperienceFormComponent,
+    EducationDetailsFormComponent,
+    RefereesDetailsFormComponent,
+    UploadsDetailsFormComponent
   ],
   imports: [
     BrowserModule,
