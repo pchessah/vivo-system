@@ -1,1 +1,30 @@
-<p>user-contacts-form works!</p>
+<div fxLayout="row" fxLayoutAlign="center center" fxFill>
+    <form [formGroup]="userContactForm" fxFill>
+        <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+
+            <input type="text" placeholder="First Name*" formControlName="firstName" required>
+
+            <input type="text" placeholder="Last Name*" formControlName="lastName" required>
+
+            <input type="text" placeholder="Other Names(optional)" formControlName="otherNames">
+
+            <input type="email" placeholder="Email*" formControlName="email" required>
+
+            <input type="number" placeholder="Phone Number*" formControlName="phoneNumber" required>
+
+            <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+                <input type="number" placeholder="Address*" formControlName="address" required>                
+                <input type="number" placeholder="Postal Code*" formControlName="postalCode" required>
+            </div>        
+
+            <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+                <button (click)="saveContactInfo()" mat-raised-button type="submit" class="save-btn">
+                    Save
+                </button>
+                <button mat-raised-button type="submit" class="edit-btn">
+                    Edit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
