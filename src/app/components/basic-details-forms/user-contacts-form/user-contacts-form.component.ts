@@ -13,13 +13,13 @@ export class UserContactsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userContactForm = this.fb.group({
-      email: ['', Validators.required],
-      firstName: ["",Validators.required],
-      lastName: ["",Validators.required],
-      otherNames: [""],
-      phoneNumber: ["",Validators.required],
-      address: ["",Validators.required],
-      postalCode: ["",Validators.required],
+      email: [null,[Validators.required, Validators.email]],
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
+      otherNames: [null],
+      phoneNumber: [null, [Validators.required, Validators.minLength(10)]],
+      address: [null, Validators.required],
+      postalCode: [null, Validators.required],
     })
   }
 

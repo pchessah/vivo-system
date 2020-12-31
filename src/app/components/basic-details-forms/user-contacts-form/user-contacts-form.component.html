@@ -2,26 +2,43 @@
     <form [formGroup]="userContactForm" fxFill>
         <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
 
+
             <input type="text" placeholder="First Name*" formControlName="firstName" required>
+            <div *ngIf="userContactForm.get('firstName').invalid && (userContactForm.get('firstName').dirty || userContactForm.get('firstName').touched)"
+                class="error-msg">First Name is required</div>
 
             <input type="text" placeholder="Last Name*" formControlName="lastName" required>
+            <div *ngIf="userContactForm.get('lastName').invalid && (userContactForm.get('lastName').dirty || userContactForm.get('lastName').touched)"
+                class="error-msg">Last Name is required</div>
 
             <input type="text" placeholder="Other Names(optional)" formControlName="otherNames">
+           
 
             <input type="email" placeholder="Email*" formControlName="email" required>
+            <div *ngIf="userContactForm.get('email').invalid && (userContactForm.get('email').dirty || userContactForm.get('email').touched)"
+                class="error-msg">Enter valid email</div>
 
             <input type="number" placeholder="Phone Number*" formControlName="phoneNumber" required>
+            <div *ngIf="userContactForm.get('phoneNumber').invalid && (userContactForm.get('phoneNumber').dirty || userContactForm.get('phoneNumber').touched)"
+                class="error-msg">Phone Number is required</div>
 
             <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
-                <input type="number" placeholder="Address*" formControlName="address" required>                
+                <input type="number" placeholder="Address*" formControlName="address" required>
+                <div *ngIf="userContactForm.get('address').invalid && (userContactForm.get('address').dirty || userContactForm.get('address').touched)"
+                class="error-msg">Address is required</div>
+
                 <input type="number" placeholder="Postal Code*" formControlName="postalCode" required>
-            </div>        
+                <div *ngIf="userContactForm.get('postalCode').invalid && (userContactForm.get('postalCode').dirty || userContactForm.get('postalCode').touched)"
+                class="error-msg">Postal Code is required</div>
+            </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
-                <button (click)="saveContactInfo()" mat-raised-button type="submit" class="save-btn">
+                <button (click)="saveContactInfo()" mat-raised-button type="submit" [disabled]="!userContactForm.valid"
+                    class="save-btn">
                     Save
                 </button>
-                <button mat-raised-button type="submit" class="edit-btn">
+
+                <button mat-raised-button class="edit-btn">
                     Edit
                 </button>
             </div>

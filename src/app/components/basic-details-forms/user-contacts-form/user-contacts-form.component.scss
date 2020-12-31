@@ -44,5 +44,10 @@ form {
   .edit-btn{
       color: white;
       background-color: #f0ad4e;
+  }
 
+  .error-msg{
+    color: red;
+    font-size: 8px;
+    align-self: start;
   }
