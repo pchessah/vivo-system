@@ -12,6 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
@@ -63,6 +64,7 @@ import { UploadsDetailsFormComponent } from './components/basic-details-forms/up
     MatIconModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     AppRoutingModule

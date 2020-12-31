@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LocalStorageService } from 'src/app/libs/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-user-contacts-form',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class UserContactsFormComponent implements OnInit {
   userContactForm: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private LocalStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.userContactForm = this.fb.group({
@@ -24,7 +25,7 @@ export class UserContactsFormComponent implements OnInit {
   }
 
   saveContactInfo(){
-    console.log(this.userContactForm.value);
+    this.LocalStorageService.setItem("candidate", JSON.stringify(this.userContactForm.value)); //SAVE INFORMATION ON LOCAL STORAGE FIRST
   }
 
 }

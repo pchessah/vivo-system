@@ -7,7 +7,7 @@ import {
 import { Router } from '@angular/router'
 import { IUser } from '../../interfaces/iuser'
 import * as firebase from 'firebase/app'
-import { first } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
