@@ -30,7 +30,7 @@
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
-                <button mat-raised-button type="submit" [disabled]="!workExperienceForm.valid" class="save-btn">
+                <button (click)="nextSection(2)" mat-raised-button type="submit" [disabled]="!workExperienceForm.valid" class="save-btn">
                     Save
                 </button>
 

@@ -17,7 +17,7 @@
                 <h4><i class="fas fa-briefcase"></i> Work Experience</h4>
             </mat-expansion-panel-header>
             <ng-template matExpansionPanelContent>
-                <app-work-experience-form></app-work-experience-form>
+                <app-work-experience-form (nextSectionEvent)="nextSection($event)"></app-work-experience-form>
             </ng-template>
         </mat-expansion-panel>
 
