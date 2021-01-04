@@ -1,0 +1,68 @@
+/* Bordered form */
+form {
+    width: 100%;
+  }  
+  
+  /* Full-width inputs */
+  input[type=text], input[type=number]{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 3px;
+    display: inline-block;
+    border: none;
+    box-sizing: border-box;
+    background-color: rgb(237, 250, 255);
+  }
+
+   input[type=date] {
+    width: 99%;
+    padding: 10px 20px;
+    margin: 8px 3px;
+    display: inline-block;
+    border: none;
+    box-sizing: border-box;
+    background-color: rgb(237, 250, 255);
+  }
+  
+  /* Set a style for all buttons */
+  button {  
+    padding: 2px 15px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 2%;
+    font-size: 12px;
+    // margin-top: 2px;
+    margin: 2px 2px 0px 2px;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+
+  .save-btn{
+      color: white;
+      background-color: #5cb85c;
+  }
+
+  .edit-btn{
+      color: white;
+      background-color: #f0ad4e;
+  }
+
+  .error-msg{
+    color: red;
+    font-size: 8px;
+    align-self: start;
+  }
+
+  label{
+      font-size: 10px;
+      align-self: start;
+  }
