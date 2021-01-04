@@ -25,4 +25,9 @@ export class BasicDetailsComponent implements OnInit {
     this.step--;
   }
 
+  nextSection(nextStep: any){
+    this.nextStep()
+    nextStep = this.step
+  }
+
 }

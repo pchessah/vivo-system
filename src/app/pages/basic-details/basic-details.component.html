@@ -2,17 +2,17 @@
     <img class="vivo-logo" src="../../../assets/vivo-logo.jpeg" alt="vivo-logo"/>
     <h4>Fill in Your details appropriately</h4>
     <mat-accordion>
-        <mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
             <mat-expansion-panel-header>
                 <h4><i class="fas fa-address-card"></i> Basic Details</h4>
             </mat-expansion-panel-header>
 
             <ng-template matExpansionPanelContent>
-                <app-user-contacts-form></app-user-contacts-form>
+                <app-user-contacts-form (nextSectionEvent)="nextSection($event)"></app-user-contacts-form>
             </ng-template>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel  [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
             <mat-expansion-panel-header>
                 <h4><i class="fas fa-briefcase"></i> Work Experience</h4>
             </mat-expansion-panel-header>
@@ -21,7 +21,7 @@
             </ng-template>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel  [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
             <mat-expansion-panel-header>
                 <h4><i class="fas fa-graduation-cap"></i> Education</h4>
             </mat-expansion-panel-header>
@@ -30,7 +30,7 @@
             </ng-template>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel  [expanded]="step === 3" (opened)="setStep(3)" hideToggle="true">
             <mat-expansion-panel-header>
                 <h4><i class="fas fa-users"></i> Referees</h4>
             </mat-expansion-panel-header>
@@ -39,7 +39,7 @@
             </ng-template>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel  [expanded]="step === 4" (opened)="setStep(4)" hideToggle="true">
             <mat-expansion-panel-header>
                 <h4><i class="fas fa-upload"></i> Uploads</h4>
             </mat-expansion-panel-header>

@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router'
 import { IUser } from '../../interfaces/iuser'
 import * as firebase from 'firebase/app'
+import { UserFeedbackMessagesService } from '../user-feedback-messages/user-feedback-messages.service'
 
 
 @Injectable({
@@ -23,6 +24,7 @@ export class AuthService {
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private userFeedBackMessage: UserFeedbackMessagesService
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -44,12 +46,12 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.currentUser = email
+          this.userFeedBackMessage.feedbackMsg("Successfully Logged In!")       
           this.router.navigate(['home']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        this.userFeedBackMessage.feedbackMsg(error.message)
       })
   }
 
@@ -60,9 +62,10 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
+        this.userFeedBackMessage.feedbackMsg("Successfully signed up! Check mail for verification") 
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        this.userFeedBackMessage.feedbackMsg(error.message)
       })
   }
 
@@ -121,15 +124,16 @@ export class AuthService {
    ForgotPassword(passwordResetEmail: string) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
+      this.userFeedBackMessage.feedbackMsg('Password reset email sent, check your inbox.') 
     }).catch((error) => {
-      window.alert(error)
+      this.userFeedBackMessage.feedbackMsg(error) 
     })
   }
 
   // Sign out 
   SignOut() {
     return this.afAuth.signOut().then(() => {
+      this.userFeedBackMessage.feedbackMsg('Logged Out') 
       localStorage.removeItem('user');
       this.router.navigate(['log-in']);
     })
