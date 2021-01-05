@@ -19,20 +19,58 @@
                     <div *ngIf="workExperienceForm.get('startDate').invalid && (workExperienceForm.get('startDate').dirty || workExperienceForm.get('startDate').touched)"
                         class="error-msg">Start Date is required</div>
                 </div>
-              
+
                 <div fxLayout="column" fxFlex="50">
                     <label>End Date</label>
                     <input type="date" placeholder="End Date*" formControlName="endDate" required>
                     <div *ngIf="workExperienceForm.get('endDate').invalid && (workExperienceForm.get('endDate').dirty || workExperienceForm.get('endDate').touched)"
                         class="error-msg">End Date is required</div>
                 </div>
-              
+
+            </div>
+
+            <button (click)="addNewWorkExperience()">Add</button>
+
+            <div formArrayName="otherCompany"
+                *ngFor="let company of workExperienceForm.get('otherCompany').controls ; let i = index">
+                <div [formGroupName]="i" ] fxFill>
+                    <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
+
+                        <input type="text" placeholder="Position2*" formControlName="position2" required>
+                        <!-- <div *ngIf="workExperienceForm.get('position').invalid && (workExperienceForm.get('position').dirty || workExperienceForm.get('position').touched)"
+                            class="error-msg">Position is required</div>
+             -->
+
+                        <input type="text" placeholder="Company/Organization*" formControlName="company2" required>
+                        <!-- <div *ngIf="workExperienceForm.get('company').invalid && (workExperienceForm.get('company').dirty || workExperienceForm.get('company').touched)"
+                            class="error-msg">Company is required</div> -->
+
+                        <div fxLayout="row" fxFill fxLayoutAlign="space-evenly">
+                            <div fxLayout="column" fxFlex="50">
+                                <label>Start Date</label>
+                                <input type="date" placeholder="Start date*" formControlName="startDate2" required>
+                                <!-- <div *ngIf="workExperienceForm.get('startDate').invalid && (workExperienceForm.get('startDate').dirty || workExperienceForm.get('startDate').touched)"
+                                    class="error-msg">Start Date is required</div> -->
+                            </div>
+
+                            <div fxLayout="column" fxFlex="50">
+                                <label>End Date</label>
+                                <input type="date" placeholder="End Date*" formControlName="endDate2" required>
+                                <!-- <div *ngIf="workExperienceForm.get('endDate').invalid && (workExperienceForm.get('endDate').dirty || workExperienceForm.get('endDate').touched)"
+                                    class="error-msg">End Date is required</div> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
-                <button (click)="nextSection(2)" mat-raised-button type="submit" [disabled]="!workExperienceForm.valid" class="save-btn">
+                <button (click)="nextSection(2)" mat-raised-button type="submit" [disabled]="!workExperienceForm.valid"
+                    class="save-btn">
                     Save
                 </button>
+
 
                 <button mat-raised-button class="edit-btn">
                     Edit

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core'
-import { FormBuilder, Validators } from '@angular/forms'
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { LocalStorageService } from 'src/app/libs/services/local-storage/local-storage.service'
 import { UserFeedbackMessagesService } from 'src/app/libs/services/user-feedback-messages/user-feedback-messages.service'
 
@@ -11,7 +11,9 @@ import { UserFeedbackMessagesService } from 'src/app/libs/services/user-feedback
 export class WorkExperienceFormComponent implements OnInit {
   @Output() nextSectionEvent = new EventEmitter<string>()
   workExperienceForm: any
-  firstSectionInfo: any
+  firstSectionInfo: any;
+  workExperienceArr: any[] =  []
+ 
 
   constructor(
     private fb: FormBuilder,
@@ -25,9 +27,12 @@ export class WorkExperienceFormComponent implements OnInit {
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       company: [null, Validators.required],
+      otherCompany: this.fb.array([this.add()])
     })
 
-   this.firstSectionInfo = JSON.parse(this.LocalStorageService.getItem("candidate") || "{}")
+    this.firstSectionInfo = JSON.parse(
+      this.LocalStorageService.getItem('candidate') || '{}',
+    )
   }
 
   nextSection(value: any) {
@@ -35,10 +40,27 @@ export class WorkExperienceFormComponent implements OnInit {
     this.saveWorkExperienceInfo()
   }
 
-  saveWorkExperienceInfo(){
-    this.userFeedBackMessageService.feedbackMsg("Work Experience Saved")
-    let candidateInfo = {...this.firstSectionInfo,...this.workExperienceForm.value} 
-    this.LocalStorageService.setItem("candidate", JSON.stringify(candidateInfo)); //SAVE INFORMATION ON LOCAL STORAGE FIRST
+  saveWorkExperienceInfo() {
+    console.log(this.workExperienceForm.value);
+    this.userFeedBackMessageService.feedbackMsg('Work Experience Saved')
+    this.workExperienceArr = [...this.workExperienceArr, this.workExperienceForm.value]
+    let candidateInfo = {
+      ...this.firstSectionInfo, workExperienceArr: this.workExperienceArr
+     
+    }
+    this.LocalStorageService.setItem('candidate', JSON.stringify(candidateInfo)) //SAVE INFORMATION ON LOCAL STORAGE FIRST
   }
 
+  add(): FormGroup {  
+    return this.fb.group({  
+      position2: [null, Validators.required],
+      startDate2: [null, Validators.required],
+      endDate2: [null, Validators.required],
+      company2: [null, Validators.required], 
+    });  
+  }
+
+  addNewWorkExperience(): void{
+    (<FormArray>this.workExperienceForm.get("otherCompany")).push(this.add())
+  }
 }
