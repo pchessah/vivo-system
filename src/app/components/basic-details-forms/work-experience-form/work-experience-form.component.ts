@@ -10,7 +10,8 @@ import { UserFeedbackMessagesService } from 'src/app/libs/services/user-feedback
 })
 export class WorkExperienceFormComponent implements OnInit {
   @Output() nextSectionEvent = new EventEmitter<string>()
-  workExperienceForm: any
+  workExperienceForm: any;
+  workExperienceForm2: any;
   firstSectionInfo: any;
   workExperienceArr: any[] =  []
  
@@ -27,7 +28,7 @@ export class WorkExperienceFormComponent implements OnInit {
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       company: [null, Validators.required],
-      otherCompany: this.fb.array([this.add()])
+      // otherCompany: this.fb.array([this.add()])
     })
 
     this.firstSectionInfo = JSON.parse(
@@ -41,7 +42,6 @@ export class WorkExperienceFormComponent implements OnInit {
   }
 
   saveWorkExperienceInfo() {
-    console.log(this.workExperienceForm.value);
     this.userFeedBackMessageService.feedbackMsg('Work Experience Saved')
     this.workExperienceArr = [...this.workExperienceArr, this.workExperienceForm.value]
     let candidateInfo = {
@@ -51,16 +51,16 @@ export class WorkExperienceFormComponent implements OnInit {
     this.LocalStorageService.setItem('candidate', JSON.stringify(candidateInfo)) //SAVE INFORMATION ON LOCAL STORAGE FIRST
   }
 
-  add(): FormGroup {  
-    return this.fb.group({  
-      position2: [null, Validators.required],
-      startDate2: [null, Validators.required],
-      endDate2: [null, Validators.required],
-      company2: [null, Validators.required], 
-    });  
-  }
+  // add(): FormGroup {  
+  //   return this.fb.group({  
+  //     position2: [null, Validators.required],
+  //     startDate2: [null, Validators.required],
+  //     endDate2: [null, Validators.required],
+  //     company2: [null, Validators.required], 
+  //   });  
+  // }
 
-  addNewWorkExperience(): void{
-    (<FormArray>this.workExperienceForm.get("otherCompany")).push(this.add())
-  }
+  // addNewWorkExperience(): void{
+  //   return (<FormArray>this.workExperienceForm.get("otherCompany")).push(this.add())
+  // }
 }
