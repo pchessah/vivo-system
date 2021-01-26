@@ -12,6 +12,7 @@ export class WorkExperienceFormComponent implements OnInit {
   @Output() nextSectionEvent = new EventEmitter<string>()
   workExperienceForm: any;
   workExperienceForm2: any;
+  workExperienceForm3: any;
   firstSectionInfo: any;
   workExperienceArr: any[] =  []
  
@@ -28,6 +29,22 @@ export class WorkExperienceFormComponent implements OnInit {
       startDate: [null, Validators.required],
       endDate: [null, Validators.required],
       company: [null, Validators.required],
+      // otherCompany: this.fb.array([this.add()])
+    })
+
+    this.workExperienceForm2 = this.fb.group({
+      position2: [null, Validators.required],
+      startDate2: [null, Validators.required],
+      endDate2: [null, Validators.required],
+      company2: [null, Validators.required],
+      // otherCompany: this.fb.array([this.add()])
+    })
+
+    this.workExperienceForm3 = this.fb.group({
+      position3: [null, Validators.required],
+      startDate3: [null, Validators.required],
+      endDate3: [null, Validators.required],
+      company3: [null, Validators.required],
       // otherCompany: this.fb.array([this.add()])
     })
 

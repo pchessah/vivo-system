@@ -1,7 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxFill>
+<div fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <h3>Job One</h3>
     <form [formGroup]="workExperienceForm" fxFill>
         <div class="container" fxLayout="column" fxLayoutAlign="center center" fxFill>
-
 
             <input type="text" placeholder="Position*" formControlName="position" required>
             <div *ngIf="workExperienceForm.get('position').invalid && (workExperienceForm.get('position').dirty || workExperienceForm.get('position').touched)"
@@ -26,24 +26,19 @@
                     <div *ngIf="workExperienceForm.get('endDate').invalid && (workExperienceForm.get('endDate').dirty || workExperienceForm.get('endDate').touched)"
                         class="error-msg">End Date is required</div>
                 </div>
-
             </div>
-
-            
-
-           
-
-            <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
-                <button (click)="nextSection(2)" mat-raised-button type="submit" [disabled]="!workExperienceForm.valid"
-                    class="save-btn">
-                    Save
-                </button>
-
-
-                <button mat-raised-button class="edit-btn">
-                    Edit
-                </button>
-            </div>
-        </div>
+       </div>
     </form>
+    
+    <div fxLayout="row" fxLayoutAlign="space-between" fxFill>
+        <button (click)="nextSection(2)" mat-raised-button type="submit" [disabled]="!workExperienceForm.valid"
+            class="save-btn">
+            Save
+        </button>
+
+
+        <button mat-raised-button class="edit-btn">
+            Edit
+        </button>
+    </div>
 </div>
